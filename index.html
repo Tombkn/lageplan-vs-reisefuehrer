@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111318">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Lageplan">
+  <title>Lageplan oder Reiseführer</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    :root {
+      --bg: #111318;
+      --card: #1b1e27;
+      --ink: #f3f1ea;
+      --muted: #b7b3a8;
+      --plan: #7ec8a3;
+      --guide: #e6b17a;
+      --line: #2a2e3a;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); }
+    body {
+      font: 19px/1.45 system-ui, -apple-system, Segoe UI, sans-serif;
+      padding: calc(18px + env(safe-area-inset-top)) 18px calc(40px + env(safe-area-inset-bottom));
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+    h1 { font-size: 1.7rem; line-height: 1.2; margin: 0 0 0.4rem; }
+    h2 { font-size: 1.15rem; margin: 1.8rem 0 0.6rem; }
+    p, li { color: var(--ink); }
+    .muted { color: var(--muted); font-size: 0.95rem; }
+    .hero {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1.1rem 1.15rem;
+      margin: 1rem 0 1.4rem;
+    }
+    .row { display: grid; gap: 0.8rem; }
+    @media (min-width: 700px) { .row { grid-template-columns: 1fr 1fr; } }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1rem 1.05rem;
+    }
+    .card.plan { border-top: 4px solid var(--plan); }
+    .card.guide { border-top: 4px solid var(--guide); }
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+    .plan .tag { color: var(--plan); }
+    .guide .tag { color: var(--guide); }
+    ul { padding-left: 1.15rem; margin: 0.4rem 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.55rem 0.4rem; border-bottom: 1px solid var(--line); }
+    button.q {
+      width: 100%;
+      text-align: left;
+      background: var(--card);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+      font: inherit;
+      margin: 0.55rem 0;
+    }
+    button.q strong { display: block; margin-bottom: 0.35rem; }
+    .a { display: none; color: var(--muted); }
+    button.q.open .a { display: block; margin-top: 0.4rem; }
+    a { color: var(--guide); }
+    footer { margin-top: 2.2rem; color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <p class="muted">Lernzettel · 27.10.2026 · für unterwegs</p>
+  <h1>Lageplan oder Reiseführer</h1>
+  <p class="muted"><code>themen-maphack</code> gegen <code>discovery-map-gpt</code></p>
+
+  <div class="hero">
+    <p><strong>Ein Satz:</strong> Der Lageplan zeigt, wo etwas steht. Der Reiseführer erklärt und schickt dich in die nächste Stadt.</p>
+    <p>Mehr Text fühlt sich klüger an. Es ist nur mehr Unterricht — nicht der bessere Plan.</p>
+  </div>
+
+  <h2>Das Bild</h2>
+  <p>Denk an einen Supermarkt.</p>
+  <ul>
+    <li><strong>Lageplan</strong> an der Tür: Milch ist Gang 3. Käse daneben. Tiefkühl ist Gang 7.</li>
+    <li><strong>Reiseführer</strong> im Heft: warum Milch sauer wird, wie Butter entsteht, und am Ende zehn andere Städte.</li>
+  </ul>
+
+  <h2>Am Seed-Bloom</h2>
+  <div class="row">
+    <article class="card plan">
+      <div class="tag">Lageplan · themen-maphack</div>
+      <p><strong>Nur wo was steht</strong></p>
+      <ul>
+        <li>Fire — neuer Samen, merken, zeigen</li>
+        <li>Again — denselben Samen nochmal rechnen</li>
+        <li>Recall — einen alten Samen holen</li>
+        <li>Ableiten — 1 Zahl → 7 Werte, schreibt nichts</li>
+      </ul>
+      <p class="muted">Keine Geschichte. Du siehst die Regale.</p>
+    </article>
+    <article class="card guide">
+      <div class="tag">Reiseführer · discovery-map-gpt</div>
+      <p><strong>Dieselben Regale plus Unterricht</strong></p>
+      <ul>
+        <li>dieselben vier Punkte</li>
+        <li>plus warum man den Look nicht speichert</li>
+        <li>plus Zufall, Undo, Farbe</li>
+        <li>plus zehn neue große Felder</li>
+      </ul>
+      <p class="muted">Du liest länger. Du bist schon in der Nachbarstadt.</p>
+    </article>
+  </div>
+
+  <h2>Wann welchen Zettel</h2>
+  <table>
+    <thead>
+      <tr><th>Du willst</th><th>Zettel</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Welche Knöpfe? Was merkt er sich? Was fehlt?</td><td><strong>Lageplan</strong></td></tr>
+      <tr><td>Warum nur den Samen? Wo hängt das noch? Was als Nächstes lernen?</td><td><strong>Reiseführer</strong></td></tr>
+    </tbody>
+  </table>
+  <p>Alltag: Lageplan. Landschaft und Nachbarfelder: Reiseführer. Nicht ersetzen, nur weil einer voller klingt.</p>
+
+  <h2>Drei Fragen für unterwegs</h2>
+  <p class="muted">Tipp auf die Frage. Die Antwort klappt auf.</p>
+
+  <button class="q" type="button">
+    <strong>1. Fire, Again, Recall, Ableiten — was gehört dazu?</strong>
+    <span class="a">Lageplan. Du willst die Regale sehen, keine Vorlesung.</span>
+  </button>
+  <button class="q" type="button">
+    <strong>2. Warum merkt Seed-Bloom nur den Samen, nicht die sieben Werte?</strong>
+    <span class="a">Reiseführer. Hier brauchst du die Geschichte, nicht nur den Namen.</span>
+  </button>
+  <button class="q" type="button">
+    <strong>3. Sag den Merksatz laut.</strong>
+    <span class="a">Maphack räumt auf. Discovery Map erzählt weiter.</span>
+  </button>
+
+  <h2>Links</h2>
+  <ul>
+    <li><a href="https://github.com/Tombkn/lageplan-vs-reisefuehrer">GitHub-Repo</a></li>
+    <li>Notion-Seite: nach dem Anlegen hier einfügen, oder die private Notion-Notiz öffnen</li>
+  </ul>
+
+  <footer>
+    Handy: Safari Teilen → Zum Home-Bildschirm. Android: Menü → App installieren.<br>
+    Das ist ein Lernzettel, kein neuer Skill.
+  </footer>
+
+  <script>
+    document.querySelectorAll("button.q").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        btn.classList.toggle("open");
+      });
+    });
+  </script>
+</body>
+</html>
